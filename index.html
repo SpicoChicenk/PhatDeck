@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- TO DO LIST:
+  1. connect all the classes to its responding style
+  2. clean up CSS duplications if there is any
+  3. make sure the JS file has its updated class that has its conflicts (currently)
+    3a. Data attribute for JS (Look into it)
+  4. compare the backup.html and backup.css if there is any missing style/options required.
+  -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PhatDeck</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Darumadrop+One&family=Love+Ya+Like+A+Sister&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <nav class="header flexgroup navsize">
+      <div>
+        <h1 class="header__title navsize__title"><a href="#">PHATDECK</a></h1>
+      </div>
+
+      <div class="menu flexgroup">
+        <div class="menu__dropdown">
+          <button class="menu__button buttonsize__dropdown">
+            Card Background
+          </button>
+          <div class="menu__dropdown--content">
+            <a class="menu__items" href="#">Sample 1</a>
+            <a class="menu__items" href="#">Sample 2</a>
+          </div>
+        </div>
+
+        <div class="menu__dropdown">
+          <button class="menu__button buttonsize__dropdown">
+            Theme Selector
+          </button>
+          <div class="menu__dropdown--content">
+            <a class="menu__items" href="#">Sample 1</a>
+            <a class="menu__items" href="#">Sample 2</a>
+            <a class="menu__items" href="#">Sample 3</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="game">
+      <section class="centering flexgroup unselectable">
+        <img
+          class="game__helpicon unselectable"
+          src="img/question.png"
+          alt="Help icon"
+        />
+        <p class="game__helptext">
+          Pick up a card from the deck and drag it to the discard pile.
+        </p>
+      </section>
+
+      <section class="centering flexgroup">
+        <div class="game__deck">
+          <p class="game__pilename unselectable">Deck</p>
+          <div id="deck" class="game__piles">
+            <img
+              class="game__card"
+              draggable="true"
+              src="img/card-back.png"
+              alt="Back of the card"
+            />
+          </div>
+        </div>
+
+        <div class="game__discard">
+          <p class="centering game__pilename unselectable">Discard Pile</p>
+          <div id="discard" class="game__piles game__discard--pile"></div>
+        </div>
+      </section>
+
+      <section class="flexgroup centering">
+        <button class="button">Reset</button>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="centering flexgroup">
+        <div class="menu__button">
+          <a
+            class="footer__items"
+            target="_blank"
+            href="https://github.com/SpicoChicenk"
+            >GitHub</a
+          >
+        </div>
+
+        <div>
+          <a
+            class="footer__items"
+            target="_blank"
+            href="https://twitter.com/spicochicenk"
+          >
+            Twitter
+          </a>
+        </div>
+      </div>
+      <p class="footer__version">Current Version: v.0.9</p>
+    </footer>
+
+    <script src="/js/app.js"></script>
+  </body>
+</html>
+
+<!-- 
+    <main>
+  
+      <section>
+        <div>
+          <div>
+            <p>Deck</p>
+            <div>
+              <img draggable="true" alt="Back of the card pile" />
+            </div>
+          </div>
+
+          <div>
+            <p>Discard Pile</p>
+            <div></div>
+          </div>
+        </div>
+
+        <div>
+          <div>
+            <button>Reset</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    
+    <footer>
+      <div>
+        <a target="_blank" href="">GitHub</a>
+        <a target="_blank" href="https://twitter.com/spicochicenk">Twitter</a>
+        <p>Current Version: v.0.1</p>
+      </div>
+    </footer>
+    -->
