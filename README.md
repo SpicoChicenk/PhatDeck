@@ -1,47 +1,35 @@
-# Astro Starter Kit: Minimal
+# PhatDeck
 
-```sh
-npm create astro@latest -- --template minimal
-```
+PhatDeck is a web app that allows the user to draw a random card from a deck of cards.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+It is written in [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML), [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference) and [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference). These where chosen to keep the scope of the project limited.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+I had to develop a good understanding of multidimensional arrays for this project.
 
-## 🚀 Project Structure
+## Why
 
-Inside of your Astro project, you'll see the following folders and files:
+Not only will PhatDeck be a core component of a future Solitaire game, but it also serves as a way of practicing the skills that I have learned.
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Installation
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+`npm install`
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Tech Stack
 
-Any static assets, like images, can be placed in the `public/` directory.
+- HTML
+- CSS
+- JavaScript
+- [Astro](https://astro.build)
 
-## 🧞 Commands
+## Features
 
-All commands are run from the root of the project, from a terminal:
+- Both light and dark themes
+- A shuffle button
+- An animated card draw
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## To do List
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. connect all the classes to its responding style (continuing) ✅
+2. clean up CSS duplications if there is any ✅
+3. make sure the JS file has its updated class that has its conflicts (currently) ✅
+4. compare the backup.html and backup.css if there is any missing style/options required. ✅
