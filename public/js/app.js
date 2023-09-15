@@ -119,7 +119,7 @@ function dropHandler(event) {
   let draggedCard = deck.splice(myIndex, 1);
 
   // console.log(myIndex);
-  let img = `img/${draggedCard}`;
+  let img = `/img/${draggedCard}`;
 
   event.target.classList.remove("drag-over");
   event.target.classList.remove("game__discard--pile");
