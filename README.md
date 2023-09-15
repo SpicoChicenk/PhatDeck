@@ -10,6 +10,13 @@ I had to develop a good understanding of multidimensional arrays for this projec
 
 Not only will PhatDeck be a core component of a future Solitaire game, but it also serves as a way of practicing the skills that I have learned.
 
+## Tech Stack
+
+- HTML
+- CSS
+- JavaScript
+- [Astro](https://astro.build)
+
 ## Features
 
 - Both light and dark themes
