@@ -15,7 +15,7 @@ Not only will PhatDeck be a core component of a future Solitaire game, but it al
 - HTML
 - CSS
 - JavaScript
-- Astro
+- [Astro](https://astro.build)
 
 ## Features
 
