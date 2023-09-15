@@ -25,4 +25,4 @@ Open the app in a browser.
 1. connect all the classes to its responding style (continuing) ✅
 2. clean up CSS duplications if there is any ✅
 3. make sure the JS file has its updated class that has its conflicts (currently) ✅
-4. compare the backup.html and backup.css if there is any missing style/options required.
+4. compare the backup.html and backup.css if there is any missing style/options required. ✅
