@@ -75,7 +75,7 @@ import "../css/style.css"
 
         <div class="game__discard">
           <p class="centering game__pilename unselectable">Discard Pile</p>
-          <div id="discard" class="game__piles game__discard--pile"></div>
+          <div id="discard" class="game__piles"></div>
         </div>
       </section>
 
@@ -111,40 +111,6 @@ import "../css/style.css"
   </body>
 </html>
 
-<!-- 
-    <main>
-  
-      <section>
-        <div>
-          <div>
-            <p>Deck</p>
-            <div>
-              <img draggable="true" alt="Back of the card pile" />
-            </div>
-          </div>
-
-          <div>
-            <p>Discard Pile</p>
-            <div></div>
-          </div>
-        </div>
-
-        <div>
-          <div>
-            <button>Reset</button>
-          </div>
-        </div>
-      </section>
-    </main>
-    
-    <footer>
-      <div>
-        <a target="_blank" href="">GitHub</a>
-        <a target="_blank" href="https://twitter.com/spicochicenk">Twitter</a>
-        <p>Current Version: v.0.1</p>
-      </div>
-    </footer>
-    -->
 
 <script is:inline>
 	const defaultDeck = [
@@ -203,47 +169,36 @@ import "../css/style.css"
 ];
 
 // create a copy of deck
-
 let deck = defaultDeck;
 
-// create a random number to be used as an index
-
-// pick a random card from the deck
-// remove random card from deck
-
-// each time a card is removed, add to discard deck
 
 // DRAG AND DROP
-
 // select the DOM object on the page that represents the card to be dragged
 let dragCard = document.querySelector(".game__card");
 
-// create DOM element that you want to use (img)
+// select the container with the id deck
 let parentDeck = document.getElementById("deck");
 
 // attach the dragstart/dragend event handler, when the mouse clicks and when the mouse releases
-
 dragCard.addEventListener("dragstart", dragStartHandler);
 dragCard.addEventListener("dragend", dragEndHandler);
 
 // handle the dragstart/dragend event handler
-
 function dragStartHandler(event) {
   event.dataTransfer.setData("text/plain", event.target.class);
   setTimeout(() => {
     event.target.classList.add("hide");
   }, 0);
 }
-
 function dragEndHandler(event) {
   event.target.classList.remove("hide");
 }
 
 // target piles
-let tiles = document.querySelectorAll(".game__piles");
+let piles = document.querySelectorAll(".game__piles");
 
 // add event listeners dragenter, dragover, dragleave, drop
-tiles.forEach((pile) => {
+piles.forEach((pile) => {
   pile.addEventListener("dragenter", dragEnterHandler);
   pile.addEventListener("dragover", dragOverHandler);
   pile.addEventListener("dragleave", dragLeaveHandler);
@@ -252,74 +207,74 @@ tiles.forEach((pile) => {
 
 // handle the event dragenter, dragover, dragleave, drop
 function dragEnterHandler(event) {
+  // add the dashed border
   event.target.classList.add("drag-over");
   event.preventDefault();
 }
 function dragOverHandler(event) {
+  // add the dashed border
   event.target.classList.add("drag-over");
   event.preventDefault();
 }
 function dragLeaveHandler(event) {
+  // remove dashed border
   event.target.classList.remove("drag-over");
-  event.target.classList.remove("game__discard--pile");
 }
+
 function dropHandler(event) {
-  let myIndex = randomIndex();
-  let draggedCard = deck.splice(myIndex, 1);
-
-  // console.log(myIndex);
-  let img = `PhatDeck/img/${draggedCard}`;
-
+  // remove random card from deck
+  let draggedCard = deck.splice(randomIndex(), 1);
+  // remove dashed border
   event.target.classList.remove("drag-over");
-  event.target.classList.remove("game__discard--pile");
-  // drop takes 3 steps for it to function
-  // 1. get the draggable element, remember dataTransfer
+
+ 
+  // target discard pile
   const discard = document.querySelector("#discard");
 
   // select the DOM object on the page that represents the card to be dragged
-  // document.querySelector(".cardDeck");
   let draggable = dragCard;
 
-  // 2. add it to the dropped target
+  // remove card img element from pile add it to discard pile
   discard.appendChild(dragCard);
-  // 3. display the draggable element
-  draggable.src = img;
-  //  <img src="#" class="discardPile" alt="Discard Pile" />
+
+  // set the appropriate attributes
+  draggable.src = `PhatDeck/img/${draggedCard}`;
   draggable.alt = `${draggedCard}`;
-  // don't allow the created element to be draggable
+  // don't allow the element to be draggable
   draggable.setAttribute("draggable", false);
 
-  // step 1: target DOM that you want to use as the parent container
-  let cardsExists = document.createElement("img");
-  // step 2: create DOM element that you want to use (img)
+  // create a new card image for the pile
+  // target the deck pile
   let deckPile = parentDeck;
-  // checks the DOM element's first child node
-  let oldCard = parentDeck.childNodes[0];
-  // if your deck is > 0 then create img DOM add it to deck pile
+  // create image element
+  let cardsExists = document.createElement("img");
+
+  // check if there are still cards in the deck array
   if (deck.length > 0) {
+    // set appropriate attributes
     cardsExists.classList.add("game__card");
     cardsExists.src = "PhatDeck/img/card-back.png";
     cardsExists.alt = "Back of the card pile";
     cardsExists.setAttribute("draggable", true);
-    // step 3: put what you create in step 2 into step 1
-    // console.log(deck.length);
-    if (deckPile.hasChildNodes()) {
-      oldCard.replaceWith(cardsExists);
-      // deckPile.appendChild(cardsExists);
+  
+      // check if there's an img in the deck pile
+    if (!deckPile.hasChildNodes()) {
+      // add card image element to deck pile
+      deckPile.appendChild(cardsExists);
     }
-    //  handle when the deck array is 0
-  } else if (deck.length == 0 && deckPile.hasChildNodes()) {
-    // change deck pile background to none
-    cardsExists.src = "#";
+    // this happens when the deck array is empty
+  } else {
+    // set appropriate attributes
+    cardsExists.classList.add("game__card");
+    cardsExists.src = "PhatDeck/img/empty-deck.png";
     cardsExists.alt = "Empty Deck Pile";
     cardsExists.setAttribute("draggable", false);
-    // make child node non draggable
-    draggable.setAttribute("draggable", false);
-    cardsExists.style.display = "none";
-    oldCard.replaceWith(cardsExists);
-  } else {
-  }
+    // replace card img element in deck pile
+    deckPile.replaceWith(cardsExists);
+  } 
 }
+
+// create a random number to be used as an index
 
 function randomIndex() {
   let randomIndex = Math.floor(Math.random() * deck.length);
