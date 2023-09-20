@@ -10,6 +10,10 @@ I had to develop a good understanding of multidimensional arrays for this projec
 
 Not only will PhatDeck be a core component of a future Solitaire game, but it also serves as a way of practicing the skills that I have learned.
 
+## Installation
+
+`npm install`
+
 ## Tech Stack
 
 - HTML
@@ -22,10 +26,6 @@ Not only will PhatDeck be a core component of a future Solitaire game, but it al
 - Both light and dark themes
 - A shuffle button
 - An animated card draw
-
-## Installation
-
-Open the app in a browser.
 
 ## To do List
 
