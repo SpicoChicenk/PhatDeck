@@ -52,7 +52,7 @@ import "../css/style.css"
       <section class="centering flexgroup unselectable">
         <img
           class="game__helpicon unselectable"
-          src="PhatDeck/img/question.png"
+          src="/PhatDeck/img/question.png"
           alt="Help icon"
         />
         <p class="game__helptext">
@@ -67,7 +67,7 @@ import "../css/style.css"
             <img
               class="game__card"
               draggable="true"
-              src="PhatDeck/img/card-back.png"
+              src="/PhatDeck/img/card-back.png"
               alt="Back of the card"
             />
           </div>
@@ -238,7 +238,7 @@ function dropHandler(event) {
   discard.appendChild(dragCard);
 
   // set the appropriate attributes
-  draggable.src = `PhatDeck/img/${draggedCard}`;
+  draggable.src = `/PhatDeck/img/${draggedCard}`;
   draggable.alt = `${draggedCard}`;
   // don't allow the element to be draggable
   draggable.setAttribute("draggable", false);
@@ -253,7 +253,7 @@ function dropHandler(event) {
   if (deck.length > 0) {
     // set appropriate attributes
     cardsExists.classList.add("game__card");
-    cardsExists.src = "PhatDeck/img/card-back.png";
+    cardsExists.src = "/PhatDeck/img/card-back.png";
     cardsExists.alt = "Back of the card pile";
     cardsExists.setAttribute("draggable", true);
   
@@ -266,7 +266,7 @@ function dropHandler(event) {
   } else {
     // set appropriate attributes
     cardsExists.classList.add("game__card");
-    cardsExists.src = "PhatDeck/img/empty-deck.png";
+    cardsExists.src = "/PhatDeck/img/empty-deck.png";
     cardsExists.alt = "Empty Deck Pile";
     cardsExists.setAttribute("draggable", false);
     // replace card img element in deck pile
