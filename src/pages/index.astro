@@ -217,7 +217,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       cardsExists.alt = "Empty Deck Pile";
       cardsExists.setAttribute("draggable", false);
       // replace card img element in deck pile
-      deckPile.replaceWith(cardsExists);
+      deckPile.innerHTML = "";
+      deckPile.appendChild(cardsExists);
     }
   }
 
