@@ -43,6 +43,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
     <section class="flex items-center justify-center">
       <button
+        id="reset"
         class="rounded-lg border bg-primary px-4 py-2 font-display text-lg font-bold uppercase shadow-md hover:bg-secondary"
         >Reset</button
       >
@@ -107,7 +108,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   ];
 
   // create a copy of deck
-  let deck = defaultDeck;
+  let deck = [...defaultDeck];
 
   // DRAG AND DROP
   // select the DOM object on the page that represents the card to be dragged
@@ -225,5 +226,35 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   function randomIndex() {
     let randomIndex = Math.floor(Math.random() * deck.length);
     return randomIndex;
+  }
+
+  // target button
+  const resetButton = document.querySelector("#reset");
+
+  // add event listener to button
+  resetButton.addEventListener("click", handleReset);
+
+  function handleReset(event) {
+    event.preventDefault();
+    //  The discard pile is empty
+    discard.innerHTML = "";
+    //  The deck pile needs to have the card back image
+    parentDeck.innerHTML = "";
+
+    const createCard = document.createElement("img");
+
+    createCard.classList.add(
+      "h-[500px]",
+      "w-[350px]",
+      "rounded-xl",
+      "shadow-lg",
+    );
+    createCard.src = "/PhatDeck/img/card-back.png";
+    createCard.alt = "Back of the card pile";
+    createCard.setAttribute("draggable", true);
+    parentDeck.appendChild(createCard);
+
+    //  Reset the deck array
+    deck = [...defaultDeck];
   }
 </script>
